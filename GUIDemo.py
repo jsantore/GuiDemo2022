@@ -3,7 +3,7 @@ import PySide6.QtWidgets
 import sys
 import DemoWindow
 import numbers
-from typing import List, Dict
+
 
 
 def display_data(data: list):
@@ -12,7 +12,7 @@ def display_data(data: list):
     sys.exit(qt_app.exec_())
 
 
-def get_test_data() -> List[Dict]:
+def get_test_data() -> list[dict]:
     workbook_file = openpyxl.load_workbook("CensusMedianIncome.xlsx")
     worksheet = workbook_file.active
     final_data_list = []

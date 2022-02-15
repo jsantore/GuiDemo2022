@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QWidget, QPushButton, QListWidget, QApplication, QListWidgetItem, QMessageBox
-from typing import List, Dict
+
 
 
 class Comp490DemoWindow(QWidget):
@@ -14,8 +14,8 @@ class Comp490DemoWindow(QWidget):
         display_list = QListWidget(self)
         self.list_control = display_list
         self.put_data_in_list(self.data)
-        display_list.resize(400,350)
-        self.setGeometry(300,100, 400, 500)
+        display_list.resize(400, 350)
+        self.setGeometry(300, 100, 400, 500)
         quit_button = QPushButton("Quit Now", self)
         quit_button.clicked.connect(QApplication.instance().quit)
         quit_button.resize(quit_button.sizeHint())
@@ -23,10 +23,10 @@ class Comp490DemoWindow(QWidget):
         comp490_demo_button = QPushButton("Push me for Demo", self)
         comp490_demo_button.move(100, 400)
         comp490_demo_button.clicked.connect(self.do_something_to_demo)
-        #comp490_demo_button.resize(123, 35)
+        # comp490_demo_button.resize(123, 35)
         self.show()
 
-    def put_data_in_list(self, data: List[Dict]):
+    def put_data_in_list(self, data: list[dict]):
         for item in data:
             display_text = f"{item['state_name']}\t\t{item['median_income']}"
             list_item = QListWidgetItem(display_text, listview=self.list_control)
@@ -36,4 +36,3 @@ class Comp490DemoWindow(QWidget):
         message_box.setText("You just pushed the button - imagine database work here")
         message_box.setWindowTitle("Comp490 Demo")
         message_box.show()
-
