@@ -9,7 +9,7 @@ import numbers
 def display_data(data: list):
     qt_app = PySide6.QtWidgets.QApplication(sys.argv)  # sys.argv is the list of command line arguments
     my_window = DemoWindow.Comp490DemoWindow(data)
-    sys.exit(qt_app.exec_())
+    sys.exit(qt_app.exec())
 
 
 def get_test_data() -> list[dict]:
