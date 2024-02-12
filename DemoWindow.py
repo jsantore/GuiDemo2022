@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QWidget, QPushButton, QListWidget, QApplication, QListWidgetItem, QMessageBox
 
 import SecondWindow
+import MapWindow
 
 
 class Comp490DemoWindow(QWidget):
@@ -26,6 +27,9 @@ class Comp490DemoWindow(QWidget):
         comp490_demo_button = QPushButton("Push me for Demo", self)
         comp490_demo_button.move(100, 400)
         comp490_demo_button.clicked.connect(self.do_something_to_demo)
+        comp490_demo_button = QPushButton("Map Demo", self)
+        comp490_demo_button.move(300, 400)
+        comp490_demo_button.clicked.connect(self.show_map_window)
         self.show()
 
     def put_data_in_list(self, data: list[dict]):
@@ -38,6 +42,10 @@ class Comp490DemoWindow(QWidget):
         message_box.setText("You just pushed the button - imagine database work here")
         message_box.setWindowTitle("Comp490 Demo")
         message_box.show()
+
+    def show_map_window(self):
+        map_window = MapWindow.Comp490MapWindow()
+        map_window.show()
 
     def find_full_data_record(self, stateName:str):
         for state_record in self.data:

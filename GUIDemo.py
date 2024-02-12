@@ -5,7 +5,6 @@ import DemoWindow
 import numbers
 
 
-
 def display_data(data: list):
     qt_app = PySide6.QtWidgets.QApplication(sys.argv)  # sys.argv is the list of command line arguments
     my_window = DemoWindow.Comp490DemoWindow(data)
@@ -26,13 +25,13 @@ def get_test_data() -> list[dict]:
         median_income2014 = current_row[11].value
         if not isinstance(median_income2018, numbers.Number):
             continue
-        record = {"state_name": state_name, "median_income": median_income2018, "income2017":median_income2017,
-                  "income2016":median_income2016, "income2015":median_income2015, "income2014":median_income2014,}
+        record = {"state_name": state_name, "median_income": median_income2018, "income2017": median_income2017,
+                  "income2016": median_income2016, "income2015": median_income2015, "income2014": median_income2014, }
         final_data_list.append(record)
     return final_data_list
 
 
-def get_key(value:dict):
+def get_key(value: dict):
     return value["median_income"]
 
 
