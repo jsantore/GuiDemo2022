@@ -19,7 +19,8 @@ class Comp490MapWindow(QtWebEngineWidgets.QWebEngineView):
             location=[45.5236, -122.6750], zoom_start=13
         )
         in_memory_file = io.BytesIO()
+        # doh error?
         temp_demo_map.save(in_memory_file, close_file=False)
         self.setHtml(in_memory_file.getvalue().decode("utf-8"))
         self.resize(800,600)
-        self.show()
+
