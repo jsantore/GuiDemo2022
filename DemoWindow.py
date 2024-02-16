@@ -44,8 +44,8 @@ class Comp490DemoWindow(QWidget):
         message_box.show()
 
     def show_map_window(self):
-        map_window = MapWindow.Comp490MapWindow([])
-        map_window.show()
+        self.map_window = MapWindow.Comp490MapWindow([])
+        self.map_window.show()
 
     def find_full_data_record(self, stateName:str):
         for state_record in self.data:

@@ -3,6 +3,7 @@ import PySide6.QtWidgets
 import sys
 import DemoWindow
 import numbers
+from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 
 
 def display_data(data: list):
@@ -36,6 +37,7 @@ def get_key(value: dict):
 
 
 def main():
+    QQuickWindow.setGraphicsApi(QSGRendererInterface.GraphicsApi.Software)
     test_data = get_test_data()
     test_data.sort(key=get_key)
     display_data(test_data)
