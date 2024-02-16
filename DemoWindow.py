@@ -57,19 +57,18 @@ class Comp490DemoWindow(QWidget):
              ("Taunton, MA", "National Weather Service"),
              ("Taunton, MA", "FedEx"),
              ("Brockton, MA", "Bluestone Apps")]
-              )
+        )
         self.map_window.show()
 
-    def find_full_data_record(self, stateName:str):
+    def find_full_data_record(self, stateName: str):
         for state_record in self.data:
             if state_record["state_name"] == stateName:
                 return state_record
 
-    def demo_list_item_selected(self, current:QListWidgetItem, previous:QListWidgetItem):
+    def demo_list_item_selected(self, current: QListWidgetItem, previous: QListWidgetItem):
         selected_data = current.data(0)  # the data function has a 'role' choose 0 unless you extended QListWidgetItem
         state_name = selected_data.split("\t")[0]  # split on tab and take the first resulting entry
         full_record = self.find_full_data_record(state_name)
         print(full_record)
         self.data_window = SecondWindow.Comp490DataDemoWindow(full_record)
         self.data_window.show()
-

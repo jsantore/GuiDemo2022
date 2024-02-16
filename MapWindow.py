@@ -5,6 +5,7 @@ from PySide6.QtWebEngineWidgets import QWebEngineView
 from geopy.geocoders import Nominatim
 from folium.plugins import MarkerCluster
 
+
 class Comp490MapWindow(QWidget):
     def __init__(self, data_to_display):
         super().__init__()
@@ -40,14 +41,10 @@ class Comp490MapWindow(QWidget):
         for data in self.data_to_display:
             job_location = data[0]
             job_company = data[1]
-            job_loc_geocoded = geolocator.geocode(job_location)
+            job_loc_geocoded = geolocator.geocode(job_location)  # this might need try/catch for small towns
             folium.Marker(
                 location=[job_loc_geocoded.latitude, job_loc_geocoded.longitude],
                 popup=job_company
             ).add_to(map_data_markers)
         temp_demo_map.save(in_memory_file, close_file=False)
         return in_memory_file
-
-
-
-
