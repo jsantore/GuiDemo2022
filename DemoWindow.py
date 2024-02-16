@@ -44,7 +44,20 @@ class Comp490DemoWindow(QWidget):
         message_box.show()
 
     def show_map_window(self):
-        self.map_window = MapWindow.Comp490MapWindow([])
+        self.map_window = MapWindow.Comp490MapWindow(
+            [("Boston, MA", "MBTA"),
+             ("Boston, MA", "LHH"),
+             ("Boston, MA", "LHH"),
+             ("Boston, MA", "Linksquares Inc"),
+             ("Boston, MA", "Veeva Systems"),
+             ("Boston, MA", "Houghton Mifflin Harcourt"),
+             ("Boston, MA", "Liberty Mutual Insurance"),
+             ("Woburn, MA 01801", "SBLI"),
+             ("Taunton, MA", "General Dynamics"),
+             ("Taunton, MA", "National Weather Service"),
+             ("Taunton, MA", "FedEx"),
+             ("Brockton, MA", "Bluestone Apps")]
+              )
         self.map_window.show()
 
     def find_full_data_record(self, stateName:str):
